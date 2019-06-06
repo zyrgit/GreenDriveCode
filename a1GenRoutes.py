@@ -5,7 +5,6 @@ from configure.params import Mytools_Rel_Dir,region2serverIP
 import traci
 from common.constants import MetersPerMile
 from common.util import get_weekday_index_given_ymdhms,get_weekday_index_given_mdyhms12,get_hour_index_given_str,in_bbox_latlng,get_heading_given_dirStr,get_minute_given_str
-from configure.runcl0327 import addr2RouteFilters 
 
 addpath = mypydir+ Mytools_Rel_Dir
 if addpath not in sys.path: sys.path.append(addpath)
@@ -164,23 +163,13 @@ if      'splitduaroutes' in sys.argv: # split up dua routes, to allow diff densi
 	for ind in tripsIndex:
 		dua_route_file = base_route_file.rstrip('.xml')+'%d.xml'%ind # /*._0xx.rou.xml
 		in_rou_files.append(dua_route_file)
-	for fn in addr2RouteFilters[R['addr']].keys():
-		fpath = mypydir +mapFolder+os.sep +fn
-		if fpath not in in_rou_files: 
-			in_rou_files.append(fpath)
 	print('in_rou_files',in_rou_files)
 
 	random.seed(1)
 	for fn in in_rou_files:
 		portion, e2ratio, eset = 1, {}, set()
 		rouFileName = fn.rsplit(os.sep,1)[1]
-		if rouFileName in addr2RouteFilters[R['addr']]:
-			dic = addr2RouteFilters[R['addr']][rouFileName]
-			portion = dic['portion']
-			e2ratio = dic['edgeaccept']
-			eset = set(e2ratio.keys())
 		print('reading  '+fn)
-		print(portion,e2ratio)
 		with open(fn, 'r') as f:
 			f.seek(0,2)
 			endBytes = f.tell()
@@ -203,7 +192,7 @@ if      'splitduaroutes' in sys.argv: # split up dua routes, to allow diff densi
 						prob *= e2ratio[avoidedge]
 						break
 					rand = random.random()
-					if rand<prob:
+					if rand<prob: # only if you wanna ban some edge.
 						route_edges_str_list.append(estr)
 
 	random.shuffle(route_edges_str_list)

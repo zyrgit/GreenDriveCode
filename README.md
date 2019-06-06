@@ -9,7 +9,7 @@ alias py='$HOME/anaconda2/bin/python'
 
 ---
 ## Setup
-Download and install `sumo-1.1`. 
+Download and install `sumo-1.1.0`. 
 Make sure you have `SUMO_HOME` defined in your environment, so that in Python, `os.environ['SUMO_HOME']` can be resolved. 
 
 
@@ -83,16 +83,16 @@ We can compare with Google's routes in terms of fuel efficiency by having vehicl
 
 Generate comparing routes: `py a5MappingCompareTraces.py genroutes`.
 
-Map routes to SUMO edges: `py a5MappingCompareTraces.py ff tracemapper`.
+Map routes to SUMO edges: `py a5MappingCompareTraces.py tracemapper`.
 
 Replace original routes: `py a5MappingCompareTraces.py replaceroutes`.
 
 
 ---
 ## Use traffic count data and road speed data
-Process downloaded datasets, traffic counts and road speeds. Map them to SUMO edge, and place an induction loop/detector there. You can also use `flowrouter` tool to generate routes according to the induction loop counts. 
+Process downloaded datasets, traffic counts and road speeds. Map them to SUMO edge, and place an induction loop/detector there. It also generates routes according to the induction loop counts. 
 ```
-py a6InductionLoop.py ff speed loop xml
+py a6InductionLoop.py speed loop xml
 ```
 
 ---
@@ -102,6 +102,17 @@ Process the extracted taxi trips from `a1GenRoutes.py`, and map the trips' origi
 py a7Taxi.py map route
 ```
 
+---
+## Run main simulations
+After routes are generated, and TLS learning is done, we can start run main simulations here. Similarly, edit `./configure/tasks.py` and config file, and the task dict in this task file will be loaded as `R` in main code. 
 
+To run GreenDrive, set `R['tls1']=1 and R['tls2']=1` in task dict. To run CoDrive on top of GreenDrive, set `R['tls1']=1 and R['tls2']=1 and R['co']=1` in task dict. 
+
+To control vehicle density, set `'split'` value to an desired one according to `a3*.py` analysis. Set `'pene'` value to control system penetration ratio, `R['pene']/R['split']` will be this percentage.
+
+When ready, run:
+```
+py b1simulate.py
+```
 
 

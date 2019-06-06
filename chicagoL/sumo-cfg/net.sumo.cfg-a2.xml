@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/sumoConfiguration.xsd">
+    <input>
+        <gui-settings-file value="./net.setting.xml"/>
+        <net-file value="./../chicagoL.tls.net.xml"/>
+        
+        <route-files value="./../chicagoL_019.rou0.xml,./../chicagoL_019.rou1.xml"/> 
+        <additional-files value="./../../vtype.add.xml"/>
+
+    </input>
+    <time-to-teleport value="80"/>
+</configuration>

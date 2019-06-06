@@ -1,0 +1,12 @@
+<additional>
+
+<vType id="vta1" accel="2.6" decel="4.5" emergencyDecel="6.0" length="5.0" minGap="2.0" maxSpeed="50" sigma="0.5" speedFactor="1.0" speedDev="0.0" guiShape="passenger" vClass="passenger" impatience="0.0" color="1,0,0" lcSpeedGain="0.0" lcKeepRight="0" lcCooperative="0.0" lcStrategic="9999" lcOpposite="0.0" lcLookaheadLeft="9999" jmIgnoreFoeProb="1.0" jmIgnoreFoeSpeed="3.0" jmTimegapMinor="0.1"/>
+
+<vType id="vtb1" accel="2.6" decel="4.5" emergencyDecel="6.0" length="5.0" minGap="2.0" maxSpeed="50" sigma="0.5" speedFactor="1.0" speedDev="0.0" guiShape="passenger" vClass="passenger" impatience="0.0" color="0,1,0" lcSpeedGain="0.0" lcKeepRight="0" lcCooperative="0.0" lcStrategic="9999" lcOpposite="0.0" lcLookaheadLeft="9999" jmIgnoreFoeProb="1.0" jmIgnoreFoeSpeed="3.0" jmTimegapMinor="0.1"/>
+
+<vType id="vtc1" accel="2.6" decel="4.5" emergencyDecel="6.0" length="5.0" minGap="2.0" maxSpeed="50" sigma="0.5" speedFactor="1.0" speedDev="0.0" guiShape="passenger" vClass="passenger" impatience="0.0" color="0,1,1" lcSpeedGain="0.0" lcKeepRight="0" lcCooperative="0.0" lcStrategic="9999" lcOpposite="0.0" lcLookaheadLeft="9999" jmIgnoreFoeProb="1.0" jmIgnoreFoeSpeed="3.0" jmTimegapMinor="0.1"/>
+
+<vType id="vtd1" accel="2.6" decel="4.5" emergencyDecel="6.0" length="5.0" minGap="2.0" maxSpeed="50" sigma="0.5" speedFactor="1.0" speedDev="0.0" guiShape="passenger" vClass="passenger" impatience="0.0" color="1,0,1" lcSpeedGain="0.0" lcKeepRight="0" lcCooperative="0.0" lcStrategic="9999" lcOpposite="0.0" lcLookaheadLeft="9999" jmIgnoreFoeProb="1.0" jmIgnoreFoeSpeed="3.0" jmTimegapMinor="0.1"/>
+
+
+</additional>
