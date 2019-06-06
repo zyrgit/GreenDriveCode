@@ -1,6 +1,6 @@
 # GreenDriveCode
 
-This is the code for SUMO simulation of GreenDrive, CoDrive and GreenRoute. Some code will use my GreenRoute code at https://github.com/zyrgit/GreenRouteCode. I assume that you also installed that. I also assume you put this repo in `~/syncdir/GreenDriveCode/` to run.
+This is the code for SUMO simulation of GreenDrive, CoDrive and GreenRoute. Some code will use my GreenRoute code at https://github.com/zyrgit/GreenRouteCode. I assume that you also installed that. I also assume you put this repo as `~/syncdir/GreenDriveCode` to run.
 
 Note, I have an alias in Linux command for Python, as specified in `~/.bashrc`:
 ```
@@ -18,7 +18,7 @@ Make sure you have `SUMO_HOME` defined in your environment, so that in Python, `
 https://extract.bbbike.org/
 
 Then create a folder for the osm file, name the folder and osm file the same name, such as `./addr/addr.osm`.
-
+In this repo, I put Chicago Loop's osm in there, as `./chicagoL/chicagoL.osm`.
 
 ---
 ## Generate net file
@@ -78,7 +78,7 @@ You can also run this to get car stats about fuel, time, etc.:
 
 
 ---
-## Insert Google's vs. Green routes into route files
+## Insert Google's vs. green routes into route files
 We can compare with Google's routes in terms of fuel efficiency by having vehicles running on their routes. It will use GreenRouteCode with Google Maps API keys, set this up yourself. 
 
 Generate comparing routes: `py a5MappingCompareTraces.py genroutes`.
@@ -90,14 +90,14 @@ Replace original routes: `py a5MappingCompareTraces.py replaceroutes`.
 
 ---
 ## Use traffic count data and road speed data
-Process downloaded datasets, traffic counts and road speeds. Map them to SUMO edge, and place an induction loop/detector there. It also generates routes according to the induction loop counts. 
+Process downloaded datasets, traffic counts and road speeds. Map them to SUMO edge, and place an induction loop/detector there. It can also generates routes according to the induction loop counts. 
 ```
 py a6InductionLoop.py speed loop xml
 ```
 
 ---
 ## Use taxi trip data
-Process the extracted taxi trips from `a1GenRoutes.py`, and map the trips' origin-destinations (ODs) to SUMO edges, and do the routing. Also you can find those trips that pass by the SUMO network, and get the overlapped part as ODs.
+Process the extracted taxi trips from `a1GenRoutes.py`, and map the trips' origin-destinations (ODs) to SUMO edges, and do the routing. It can also find trips that pass by the SUMO network, and get the overlapped part as ODs.
 ```
 py a7Taxi.py map route
 ```
